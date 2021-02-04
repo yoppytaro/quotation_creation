@@ -1,5 +1,5 @@
 function getInfo() {
-    var ssForm = SpreadsheetApp.openById('1ERFTlYNZxAUsRP6JhmZ6z4OTA9IKWBs2GfXRXMkhjc8');
+    var ssForm = SpreadsheetApp.openById('*************************************');
     var sheetForm = ssForm.getSheetByName('記入情報');
     
     var lastRow = sheetForm.getLastRow();  
@@ -21,7 +21,7 @@ function getInfo() {
     item3[0].splice(1, 0,'','');
     
     //見積書テンプレート
-    var ssQuotation = SpreadsheetApp.openById('1gFbyLBgRZ26ezjTgu3dH3gYT0SggwQerqRpSiWY3Jp0');
+    var ssQuotation = SpreadsheetApp.openById('********************************');
     //var sheetQuotation = ssQuotation.getSheetByName('見積書_テンプレート');
     
     //シート複製
@@ -44,7 +44,7 @@ function getInfo() {
     
     SpreadsheetApp.flush();
     
-    var url = 'https://docs.google.com/spreadsheets/d/1gFbyLBgRZ26ezjTgu3dH3gYT0SggwQerqRpSiWY3Jp0/export?exportFormat=pdf&gid=SID'.replace('SID',sheetId);
+    var url = 'https://docs.google.com/spreadsheets/d/*************************/export?exportFormat=pdf&gid=SID'.replace('SID',sheetId);
     var token = ScriptApp.getOAuthToken();
     var response = UrlFetchApp.fetch(url,{
       headers:{
@@ -55,7 +55,7 @@ function getInfo() {
     var date = Utilities.formatDate(new Date(), 'Asia/Tokyo', 'yyyyMMdd');
     var blob = response.getBlob().setName(date+'_'+companyName+'御中.pdf');
     
-    var folder = DriveApp.getFolderById('1kicrVaBIeV_Iap3KOK0rTBRRrRnssyQ7');
+    var folder = DriveApp.getFolderById('****************************');
     var file = folder.createFile(blob);
     
     var to = email;
